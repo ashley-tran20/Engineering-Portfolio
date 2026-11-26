@@ -1,0 +1,2112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ashley Tran | Engineering Portfolio</title>
+
+<meta name="description" content="Ashley Tran's engineering portfolio featuring robotics, embedded systems, hardware, software, and assistive technology.">
+
+<style>
+
+/* Color Palette */
+
+:root {
+    --background: #101e33;
+    --surface: #192b43;
+    --surface-light: #233750;
+    --border: #304660;
+    --text: #f1f5f9;
+    --muted: #a9bed5;
+    --accent: #8caacb;
+    --white: #ffffff;
+}
+
+/* General Styling */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: Inter, -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", Arial, sans-serif;
+    line-height: 1.7;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 5px;
+}
+
+.container {
+    width: min(1180px, 90%);
+    margin: auto;
+}
+
+/* Navigation */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(16, 30, 51, 0.97);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+}
+
+nav {
+    min-height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 650;
+    letter-spacing: -0.8px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--white);
+}
+
+/* Introduction */
+
+.hero {
+    padding: 65px 0 45px;
+}
+
+.eyebrow {
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 720px;
+}
+
+.hero .university {
+    color: var(--text);
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 24px;
+}
+
+.status-dot {
+    height: 8px;
+    width: 8px;
+    background: #83c9ad;
+    border-radius: 50%;
+}
+
+/* Portfolio Section */
+
+.projects-section {
+    padding: 25px 0 80px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    gap: 15px;
+}
+
+.section-heading h2 {
+    font-size: 26px;
+    font-weight: 550;
+    letter-spacing: -0.6px;
+}
+
+.project-count {
+    color: var(--accent);
+    font-size: 13px;
+}
+
+/* Project Filters */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 30px;
+}
+
+.filter-button {
+    padding: 8px 18px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: #365575;
+    color: var(--white);
+    border-color: #527493;
+}
+
+/* Project Gallery */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 38px;
+}
+
+.project-card {
+    background: transparent;
+    border: none;
+    text-align: left;
+    color: var(--text);
+    width: 100%;
+    min-width: 0;
+    align-self: start;
+}
+
+.project-image {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: var(--surface-light);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.045);
+}
+
+.placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px;
+    color: var(--accent);
+    text-align: center;
+}
+
+.placeholder svg {
+    width: 38px;
+    height: 38px;
+    opacity: 0.7;
+}
+
+.placeholder span {
+    font-size: 12px;
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 18px;
+    background: linear-gradient(
+        transparent 55%,
+        rgba(0, 0, 0, 0.55)
+    );
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.project-card:hover .image-overlay,
+.project-card:focus-visible .image-overlay {
+    opacity: 1;
+}
+
+.overlay-arrow {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 22px;
+}
+
+.project-info {
+    padding: 15px 1px 0;
+}
+
+.project-info h3 {
+    font-size: 17px;
+    line-height: 1.4;
+    font-weight: 550;
+    margin-bottom: 5px;
+}
+
+.project-category {
+    font-size: 12px;
+    color: var(--accent);
+}
+
+.project-date {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+/* Project Details */
+
+.project-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(980px, 94vw);
+    max-height: 92vh;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--background);
+    color: var(--text);
+    overflow-y: auto;
+}
+
+.project-dialog::backdrop {
+    background: rgba(3, 10, 22, 0.85);
+    backdrop-filter: blur(5px);
+}
+
+.dialog-top {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+}
+
+.close-button {
+    background: transparent;
+    color: var(--muted);
+    border: none;
+    font-size: 14px;
+}
+
+.close-icon {
+    font-size: 26px;
+    line-height: 1;
+}
+
+.detail-content {
+    padding: 35px;
+}
+
+.detail-content h1 {
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.detail-date {
+    color: var(--accent);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+.tag {
+    background: var(--surface-light);
+    color: var(--muted);
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-size: 12px;
+}
+
+/* Adaptive Photo Gallery */
+
+.detail-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 35px;
+}
+
+.detail-gallery:empty {
+    display: none;
+}
+
+.detail-gallery.single {
+    grid-template-columns: 1fr;
+}
+
+.detail-gallery.multiple figure:first-child {
+    grid-column: 1 / -1;
+}
+
+.detail-gallery.multiple figure:last-child:nth-child(even) {
+    grid-column: 1 / -1;
+}
+
+.detail-photo {
+    min-width: 0;
+}
+
+.detail-photo img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+}
+
+.detail-photo figcaption {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* Project Descriptions */
+
+.detail-section {
+    margin-bottom: 28px;
+}
+
+.detail-section h2 {
+    font-size: 20px;
+    font-weight: 550;
+    margin-bottom: 12px;
+}
+
+.detail-section p,
+.detail-section li {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+.detail-section ul {
+    padding-left: 22px;
+}
+
+.detail-section li {
+    margin-bottom: 8px;
+}
+
+.results-box {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    padding: 22px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 30px;
+}
+
+.results-box h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 550;
+}
+
+.results-box p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.confidentiality {
+    color: var(--accent);
+    font-size: 13px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+}
+
+/* About Me */
+
+.about-section {
+    padding: 65px 0;
+    border-top: 1px solid var(--border);
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.about-layout.no-photo {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+}
+
+.profile-image {
+    aspect-ratio: 4 / 5;
+    background: var(--surface-light);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.profile-image[hidden] {
+    display: none;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content h2 {
+    font-size: 30px;
+    font-weight: 550;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-size: 15px;
+}
+
+/* Technical Skills */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.skill-group {
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+}
+
+.skill-group h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.skill-group p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Resume Section */
+
+.resume-section {
+    padding: 50px 0;
+    border-top: 1px solid var(--border);
+}
+
+.resume-section h2 {
+    font-size: 28px;
+    font-weight: 550;
+    margin-bottom: 12px;
+}
+
+.resume-section p {
+    color: var(--muted);
+    margin-bottom: 22px;
+}
+
+.primary-button {
+    display: inline-block;
+    background: var(--surface-light);
+    border: 1px solid #527493;
+    color: var(--white);
+    padding: 11px 22px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.primary-button:hover {
+    background: #365575;
+}
+
+/* Contact Section */
+
+.contact-section {
+    background: #0c1728;
+    border-top: 1px solid var(--border);
+    padding: 60px 0;
+}
+
+.contact-section h2 {
+    font-size: 32px;
+    font-weight: 550;
+    letter-spacing: -0.8px;
+    margin-bottom: 12px;
+}
+
+.contact-section p {
+    color: var(--muted);
+    max-width: 650px;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.contact-links a {
+    color: var(--accent);
+    font-size: 14px;
+}
+
+.contact-links a:hover {
+    color: var(--white);
+}
+
+/* Footer */
+
+footer {
+    background: #0c1728;
+    padding: 22px 0;
+    border-top: 1px solid var(--border);
+    color: var(--accent);
+    font-size: 12px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 850px) {
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr 2fr;
+        gap: 25px;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 560px) {
+    nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px 0;
+        gap: 12px;
+    }
+
+    .nav-links {
+        gap: 18px;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 40px 0 30px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 12px;
+    }
+
+    .project-info h3 {
+        font-size: 14px;
+    }
+
+    .project-category,
+    .project-date {
+        font-size: 11px;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-image {
+        max-width: 260px;
+    }
+
+    .detail-content {
+        padding: 22px;
+    }
+
+    .detail-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+
+<header>
+    <nav class="container">
+
+        <a class="logo" href="#">
+            Ashley Tran<span>.</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </nav>
+</header>
+
+<main>
+
+<!-- Introduction -->
+
+<section class="hero container">
+
+    <div class="eyebrow">
+        Engineering Portfolio / 2026
+    </div>
+
+    <h1>Design. Build. Innovate.</h1>
+
+    <p class="university">
+        Electrical &amp; Computer Engineering at Vanderbilt University
+    </p>
+
+    <p>
+        I'm interested in building systems that bring hardware
+        and software together, with a particular interest in
+        robotics, embedded systems, artificial intelligence,
+        and assistive technology.
+    </p>
+
+    <div class="availability">
+        <span class="status-dot"></span>
+        Seeking Summer 2027 engineering internships
+    </div>
+
+</section>
+
+<!-- Portfolio Section -->
+
+<section id="projects" class="projects-section container">
+
+    <div class="section-heading">
+        <h2>Selected Projects</h2>
+        <span id="project-count" class="project-count">
+            12 projects
+        </span>
+    </div>
+
+    <div class="filters" aria-label="Filter projects">
+
+        <button class="filter-button active"
+                data-filter="All" aria-pressed="true">
+            All
+        </button>
+
+        <button class="filter-button"
+                data-filter="Hardware" aria-pressed="false">
+            Hardware
+        </button>
+
+        <button class="filter-button"
+                data-filter="Software" aria-pressed="false">
+            Software
+        </button>
+
+        <button class="filter-button"
+                data-filter="Robotics" aria-pressed="false">
+            Robotics
+        </button>
+
+        <button class="filter-button"
+                data-filter="AI" aria-pressed="false">
+            AI &amp; ML
+        </button>
+
+        <button class="filter-button"
+                data-filter="Research" aria-pressed="false">
+            Research
+        </button>
+
+    </div>
+
+    <div id="project-grid" class="project-grid"></div>
+
+</section>
+
+<!-- About Me -->
+
+<section id="about" class="about-section">
+
+    <div id="about-layout" class="container about-layout no-photo">
+
+        <div id="profile-image" class="profile-image" hidden></div>
+
+        <div class="about-content">
+
+            <div class="eyebrow">A little about me</div>
+
+            <h2>Hi, I'm Ashley.</h2>
+
+            <p>
+                I'm an Electrical and Computer Engineering
+                student at Vanderbilt University pursuing
+                a minor in Computer Science. I expect to
+                graduate in May 2028.
+            </p>
+
+            <p>
+                I enjoy understanding how things work and
+                figuring out how to make them better.
+                My projects have given me experience with
+                microcontrollers, mechanical design,
+                electrical circuits, software development,
+                virtual reality, and machine learning.
+            </p>
+
+            <p>
+                I'm particularly interested in robotics
+                and assistive technology because of their
+                potential to improve people's everyday lives.
+                I enjoy projects where I can take an idea
+                through the process of designing, building,
+                testing, and improving a working system.
+            </p>
+
+            <p>
+                Outside of my projects, I work as an
+                undergraduate research assistant and a
+                teaching assistant for Intermediate Software
+                Design. I also serve as Vice President of
+                the Society of Asian Scientists and Engineers
+                and participate in Vanderbilt Women in Computing.
+            </p>
+
+            <!-- Technical Skills -->
+
+            <div class="skills-grid">
+
+                <div class="skill-group">
+                    <h3>Programming</h3>
+                    <p>
+                        Python, C, C++, C#, Java,
+                        TypeScript, JavaScript,
+                        AVR Assembly, SystemVerilog
+                    </p>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Hardware &amp; Embedded</h3>
+                    <p>
+                        Arduino, ATmega328P, FPGA,
+                        Digital Logic, Motor Control,
+                        Soldering
+                    </p>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Engineering Tools</h3>
+                    <p>
+                        Fusion 360, Quartus,
+                        Microchip Studio, Unity,
+                        Blender, Multimeters
+                    </p>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Software &amp; Data</h3>
+                    <p>
+                        React, Node.js, PostgreSQL,
+                        MongoDB, NumPy, pandas,
+                        scikit-learn, Docker, Git
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Resume Section -->
+
+<section id="resume" class="resume-section">
+
+    <div class="container">
+
+        <div class="eyebrow">Experience &amp; Education</div>
+
+        <h2>Resume</h2>
+
+        <p>
+            A summary of my education, technical experience,
+            engineering projects, and leadership activities.
+        </p>
+
+        <button class="primary-button" id="resume-button">
+            View Resume &nearr;
+        </button>
+
+    </div>
+
+</section>
+
+<!-- Contact Section -->
+
+<section id="contact" class="contact-section">
+
+    <div class="container">
+
+        <div class="eyebrow">Get in touch</div>
+
+        <h2>Let's connect.</h2>
+
+        <p>
+            I'm currently looking for Summer 2027 engineering
+            internships and am open to relocation. I'm always
+            interested in connecting with people working on
+            robotics, hardware, software, and technologies
+            that improve accessibility.
+        </p>
+
+        <div class="contact-links">
+
+            <a href="mailto:ashley.b.tran@vanderbilt.edu">
+                Email &nearr;
+            </a>
+
+            <a href="https://linkedin.com/in/ashleybtran"
+               target="_blank" rel="noopener noreferrer">
+                LinkedIn &nearr;
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- Footer -->
+
+<footer>
+    <div class="container footer-content">
+        <span>&copy; 2026 Ashley Tran</span>
+        <span>Electrical &amp; Computer Engineering</span>
+    </div>
+</footer>
+
+<!-- Project Details -->
+
+<dialog id="project-dialog" class="project-dialog"
+        aria-labelledby="detail-title">
+
+    <div class="dialog-top">
+
+        <button class="close-button" id="back-button">
+            &larr; All Projects
+        </button>
+
+        <button class="close-button close-icon"
+                id="close-button" aria-label="Close project">
+            &times;
+        </button>
+
+    </div>
+
+    <div id="detail-content" class="detail-content"></div>
+
+</dialog>
+
+<script>
+
+// Project Information
+
+const projects = [
+
+// Project 1: Automated Syringe Pump
+
+{
+    id: "syringe-pump",
+    title: "Button-Automated Syringe Pump",
+    date: "November 2025 – December 2025",
+    categories: ["Hardware", "Robotics"],
+    subtitle: "Embedded Systems · Mechanical Design",
+
+    images: [
+        "images/pump-1.jpg",
+        "images/pump-2.jpg",
+        "images/pump-3.jpg"
+    ],
+
+    captions: [
+        "Completed syringe pump",
+        "Fusion 360 mechanical design",
+        "Electrical control circuit"
+    ],
+
+    tools: [
+        "Arduino Uno", "C/C++", "Fusion 360",
+        "NEMA 17", "A4988", "I2C LCD"
+    ],
+
+    overview:
+        "I worked on an automated syringe pump designed to dispense fluid at a controlled rate. The project brought together mechanical design, electrical circuitry, and embedded programming. I wanted the system to be straightforward to operate while maintaining consistent fluid delivery.",
+
+    contributions: [
+        "Designed the pump casing and two syringe holders in Fusion 360, accounting for component dimensions and mechanical clearances.",
+        "Built and soldered the electrical circuit using an Arduino Uno, NEMA 17 stepper motor, A4988 motor driver, and I2C LCD.",
+        "Programmed the Arduino to control motor movement and integrated a pushbutton and LCD for user operation.",
+        "Used a digital multimeter to check electrical connections and troubleshoot the circuit.",
+        "Calibrated the pump and tested its fluid delivery."
+    ],
+
+    results:
+        "The pump achieved a target flow rate of 0.5 mL/min and delivered approximately 98% of the target volume across three trials.",
+
+    benefits: [
+        "Automates repetitive fluid dispensing.",
+        "Provides a controlled and consistent delivery rate.",
+        "Uses relatively affordable and accessible components.",
+        "Combines mechanical, electrical, and software systems in one working prototype."
+    ],
+
+    limitations:
+        "The prototype was evaluated across a limited number of trials. More testing would be needed to determine its reliability at different flow rates and over longer periods. I would also like to explore closed-loop feedback, a custom PCB, and a more compact enclosure."
+},
+
+// Project 2: Adaptive Electric Vehicle
+
+{
+    id: "adaptive-vehicle",
+    title: "Adaptive Electric Toy Vehicle",
+    date: "March 2026 – May 2026",
+    categories: ["Hardware", "Robotics"],
+    subtitle: "Electrical Systems · Assistive Technology",
+
+    images: [
+        "images/vehicle-1.jpg",
+        "images/vehicle-2.jpg",
+        "images/vehicle-3.jpg"
+    ],
+
+    captions: [
+        "Completed adaptive vehicle",
+        "Modified steering controls",
+        "Electrical wiring"
+    ],
+
+    tools: [
+        "Electrical Wiring", "Soldering", "Pushbuttons",
+        "Systems Integration", "Functional Testing"
+    ],
+
+    overview:
+        "Our team modified an existing electric ride-on toy vehicle to make it more accessible to children with disabilities. Traditional pedal-based controls can be difficult for some children to use, so we worked on providing alternative ways to operate the vehicle.",
+
+    contributions: [
+        "Rewired and soldered electrical connections within the vehicle.",
+        "Integrated a steering-mounted pushbutton as an alternative driving control.",
+        "Integrated a parent remote for additional control and supervision.",
+        "Worked with a four-member engineering team to troubleshoot and test the vehicle."
+    ],
+
+    results:
+        "Our team successfully completed all three planned driving tasks and delivered the modified vehicle to Vanderbilt University's Susan Gray School.",
+
+    benefits: [
+        "Provides an alternative to conventional pedal controls.",
+        "Supports greater accessibility and independent play.",
+        "Allows caregivers to assist with vehicle operation.",
+        "Repurposes an existing commercial product."
+    ],
+
+    limitations:
+        "The modifications were constrained by the vehicle's original mechanical and electrical design. Future improvements could include adjustable control placement, interchangeable input devices, and additional testing for children with different accessibility needs."
+},
+
+// Project 3: AI Career Agent
+
+{
+    id: "career-agent",
+    title: "AI Career Agent",
+    date: "June 2026 – August 2026",
+    categories: ["AI", "Software"],
+    subtitle: "Artificial Intelligence · Web Development",
+
+    images: [
+        "images/agent-1.jpg",
+        "images/agent-2.jpg",
+        "images/agent-3.jpg"
+    ],
+
+    captions: [
+        "Application homepage",
+        "Career roadmap generation",
+        "Interview preparation feature"
+    ],
+
+    tools: [
+        "Node.js", "Express.js", "Google Gemini 2.5 Flash",
+        "REST APIs", "JavaScript"
+    ],
+
+    overview:
+        "I built an AI-powered career planning application to help users explore career paths based on their interests, skills, and professional goals. I wanted to make career exploration feel more personalized and interactive than simply reading a list of job descriptions.",
+
+    contributions: [
+        "Built the application using Node.js and Express.js.",
+        "Integrated Google Gemini 2.5 Flash to generate career recommendations.",
+        "Created personalized career roadmaps based on user input.",
+        "Built an interview practice feature that generates questions and adjusts them based on users' responses.",
+        "Collected feedback from users and refined the application's recommendations."
+    ],
+
+    results:
+        "Tested the application with six users and improved the AI-generated recommendations based on their feedback.",
+
+    benefits: [
+        "Provides personalized career exploration.",
+        "Helps users identify skills relevant to their goals.",
+        "Offers interactive interview preparation.",
+        "Makes career planning more accessible."
+    ],
+
+    limitations:
+        "The quality of recommendations depends on the information provided by users and the reliability of the language model. Future improvements could include structured evaluation of AI responses, verified career data, and better tracking of user progress."
+},
+
+// Project 4: Collaborative VR Research
+
+{
+    id: "robotics-research",
+    title: "Collaborative Virtual Reality Research",
+    date: "May 2025 – Present",
+    categories: ["Robotics", "Research", "Software"],
+    subtitle: "Vanderbilt Robotics Autonomous Systems Laboratory",
+
+    images: [
+        "images/research-1.jpg",
+        "images/research-2.jpg",
+        "images/research-3.jpg"
+    ],
+
+    captions: [
+        "Collaborative VR environment",
+        "User interface development",
+        "Eye-gaze data visualization"
+    ],
+
+    tools: [
+        "Unity", "C#", "C++", "Python",
+        "NumPy", "Figma", "Meta XR SDK"
+    ],
+
+    overview:
+        "As an undergraduate research assistant, I work on a collaborative virtual reality application designed for autistic users. Participants communicate and work together to complete activities in a shared virtual environment, including building a virtual spaceship. My work focuses on improving the application and developing tools to help researchers understand participant interactions.",
+
+    contributions: [
+        "Implemented more than 20 features and improvements using Unity, C#, and C++.",
+        "Redesigned menus and interaction controls to improve the user experience.",
+        "Developed in-app communication features.",
+        "Conducted testing sessions and improved the application based on participant feedback.",
+        "Currently developing a Python and NumPy tool to process and visualize eye-gaze data from CSV files.",
+        "Collaborate with a six-member research team and present findings at monthly faculty meetings."
+    ],
+
+    results:
+        "Implemented more than 20 application features and participated in over 10 testing sessions involving more than 50 participants.",
+
+    benefits: [
+        "Provides an interactive environment for collaborative activities.",
+        "Supports research into human-computer interaction.",
+        "Allows researchers to study participant behavior.",
+        "Improves access to eye-gaze data through visualization."
+    ],
+
+    limitations:
+        "Participants have different accessibility needs and levels of familiarity with virtual reality. Continued usability testing is important. Future work could include more automated data processing and interactive visualization tools.",
+
+    confidential:
+        "Research source code and participant data are maintained privately. Only materials approved for public sharing should be displayed."
+},
+
+// Project 5: Crop Yield Prediction
+
+{
+    id: "crop-yield",
+    title: "Crop Yield Prediction Model",
+    date: "March 2024 – April 2025",
+    categories: ["AI", "Research"],
+    subtitle: "Machine Learning · Inspirit AI",
+
+    images: [
+        "images/crop-1.jpg",
+        "images/crop-2.jpg",
+        "images/crop-3.jpg"
+    ],
+
+    captions: [
+        "Project research overview",
+        "Data analysis and preprocessing",
+        "Model results and feature importance"
+    ],
+
+    tools: [
+        "Python", "pandas", "NumPy",
+        "scikit-learn", "Decision Tree Regression"
+    ],
+
+    overview:
+        "I worked on a machine learning project that explored the relationship between bacterial features in agricultural data and crop yield. The goal was to use a regression model to predict crop yield and identify which features were most influential in the model's predictions.",
+
+    contributions: [
+        "Cleaned agricultural data using Python, pandas, and NumPy.",
+        "Removed 29 low-prevalence bacterial features and normalized the dataset.",
+        "Trained and tuned a Decision Tree Regressor using scikit-learn.",
+        "Examined feature importance to identify influential bacterial features.",
+        "Worked with a six-member team to evaluate predictions and present our findings."
+    ],
+
+    results:
+        "Identified five bacterial features that were particularly influential in the decision tree model's crop yield predictions.",
+
+    benefits: [
+        "Demonstrates the use of machine learning in agricultural research.",
+        "Helps identify potentially useful relationships within a dataset.",
+        "Uses a relatively interpretable regression model.",
+        "Provides a foundation for further quantitative analysis."
+    ],
+
+    limitations:
+        "Decision trees can overfit training data, and feature importance does not establish causation. Future improvements could include cross-validation, comparison with other regression models, and evaluation on additional agricultural datasets."
+},
+
+// Project 6: Embedded Systems
+
+{
+    id: "embedded-systems",
+    title: "ATmega328P Embedded Systems",
+    date: "August 2026 – September 2026",
+    categories: ["Hardware"],
+    subtitle: "Microcontrollers · Firmware Development",
+
+    images: [
+        "images/embedded-1.jpg",
+        "images/embedded-2.jpg",
+        "images/embedded-3.jpg"
+    ],
+
+    captions: [
+        "Microcontroller hardware setup",
+        "Switch and LED testing",
+        "Firmware development environment"
+    ],
+
+    tools: [
+        "ATmega328P", "AVR Assembly",
+        "Microchip Studio", "GPIO", "Timers", "Interrupts"
+    ],
+
+    overview:
+        "I worked with the ATmega328P microcontroller to understand how software interacts directly with hardware. Programming in AVR Assembly required me to consider individual registers, memory operations, timing, and physical input and output behavior.",
+
+    contributions: [
+        "Programmed the ATmega328P using AVR Assembly.",
+        "Configured general-purpose input and output pins.",
+        "Worked with hardware timers and interrupts.",
+        "Tested switch inputs and LED outputs.",
+        "Debugged firmware and hardware behavior using Microchip Studio."
+    ],
+
+    results:
+        "Verified six switch-to-LED mappings with timed transitions of 200 milliseconds.",
+
+    benefits: [
+        "Provides direct control over microcontroller hardware.",
+        "Develops register-level programming skills.",
+        "Demonstrates how embedded systems respond to physical inputs.",
+        "Builds a foundation for sensor and motor control applications."
+    ],
+
+    limitations:
+        "Assembly programming offers detailed hardware control but can become difficult to maintain in larger systems. Future work could include implementing similar functionality in embedded C and integrating additional sensors.",
+
+    confidential:
+        "This project includes academic coursework. Restricted assignment solutions and source code are not publicly distributed."
+},
+
+// Project 7: Pinny
+
+{
+    id: "pinny",
+    title: "Pinny Web Application",
+    date: "August 2026 – September 2026",
+    categories: ["Software"],
+    subtitle: "Full-Stack Development",
+
+    images: [
+        "images/pinny-1.jpg",
+        "images/pinny-2.jpg",
+        "images/pinny-3.jpg"
+    ],
+
+    captions: [
+        "Application interface",
+        "Application features",
+        "Backend architecture"
+    ],
+
+    tools: [
+        "TypeScript", "React", "Node.js",
+        "Express.js", "MongoDB", "JWT"
+    ],
+
+    overview:
+        "Pinny is a full-stack web application that I built to gain more experience connecting a frontend interface to backend services and a database. The project gave me the opportunity to work through the development process from application design to user testing.",
+
+    contributions: [
+        "Built the frontend using React and TypeScript.",
+        "Developed backend services using Node.js and Express.js.",
+        "Connected the application to MongoDB.",
+        "Created REST APIs to manage user data.",
+        "Implemented JWT-based authentication.",
+        "Collected user feedback and fixed bugs."
+    ],
+
+    results:
+        "Tested the application with five users and resolved issues identified during testing.",
+
+    benefits: [
+        "Demonstrates end-to-end software development.",
+        "Separates frontend and backend responsibilities.",
+        "Supports persistent user data.",
+        "Includes authenticated user access."
+    ],
+
+    limitations:
+        "The application was tested with a small number of users. Future improvements could include more automated tests, stronger error handling, and additional performance and security testing."
+},
+
+// Project 8: OMSI Assistive VR
+
+{
+    id: "omsi",
+    title: "Assistive Virtual Reality Development",
+    date: "June 2023 – September 2024",
+    categories: ["Software"],
+    subtitle: "OMSI Engineering Internship",
+
+    images: [
+        "images/omsi-1.jpg",
+        "images/omsi-2.jpg",
+        "images/omsi-3.jpg"
+    ],
+
+    captions: [
+        "Virtual reality exercise environment",
+        "Interactive exercise development",
+        "Unity development process"
+    ],
+
+    tools: [
+        "Unity", "C#", "Blender",
+        "Meta XR SDK", "User-Centered Design"
+    ],
+
+    overview:
+        "During my engineering internship at the Oregon Museum of Science and Industry, I developed virtual reality experiences for a client with a disability. The goal was to create engaging activities that encouraged physical movement while accommodating the client's individual needs. This experience helped develop my interest in assistive technology.",
+
+    contributions: [
+        "Developed five interactive virtual reality exercises.",
+        "Created and adapted virtual environments using Unity and Blender.",
+        "Programmed interactions using C# and the Meta XR SDK.",
+        "Developed activities involving movements such as arm punches and hip twists.",
+        "Used client feedback to improve the accessibility of the experiences."
+    ],
+
+    results:
+        "The project contributed to a reported 50% increase in the client's physical activity and was featured in OMSI's newsletter, which reaches more than one million readers.",
+
+    benefits: [
+        "Encourages physical movement through interactive activities.",
+        "Allows exercises to be adapted to individual needs.",
+        "Provides an engaging alternative to conventional exercises.",
+        "Demonstrates the potential of virtual reality in assistive technology."
+    ],
+
+    limitations:
+        "The experiences were designed around the needs of an individual client. Additional testing would be needed before adapting the application for a broader audience. Future improvements could include adjustable difficulty and automated progress tracking.",
+
+    confidential:
+        "Client information and identifying photographs should not be shared without permission."
+},
+
+// Project 9: FPGA Design
+
+{
+    id: "fpga",
+    title: "FPGA Counter and Register Design",
+    date: "April 2025 – May 2025",
+    categories: ["Hardware"],
+    subtitle: "Digital Systems · FPGA Development",
+
+    images: [
+        "images/fpga-1.jpg",
+        "images/fpga-2.jpg",
+        "images/fpga-3.jpg"
+    ],
+
+    captions: [
+        "Digital hardware design",
+        "Register and counter logic",
+        "Simulation and testbench"
+    ],
+
+    tools: [
+        "Quartus", "FPGA", "Digital Logic",
+        "Registers", "Testbenches"
+    ],
+
+    overview:
+        "This project focused on designing and testing sequential digital logic using FPGA development tools. I explored how registers and counters store information and update their state in response to clock signals.",
+
+    contributions: [
+        "Designed counter and register logic.",
+        "Worked with sequential digital circuits and clock-driven state changes.",
+        "Used Quartus to develop and simulate digital hardware.",
+        "Created testbenches to evaluate expected circuit behavior."
+    ],
+
+    results:
+        "Developed and tested counter and register functionality through digital logic simulation.",
+
+    benefits: [
+        "Builds an understanding of sequential logic.",
+        "Demonstrates hardware-oriented design and verification.",
+        "Provides experience with FPGA development tools.",
+        "Develops skills relevant to digital hardware engineering."
+    ],
+
+    limitations:
+        "The design focuses on foundational digital logic. Future work could include more complex state machines, timing analysis, and integration into larger FPGA systems."
+},
+
+// Project 10: Microfluidic Bubble Sorter
+
+{
+    id: "microfluidics",
+    title: "Microfluidic Bubble Sorter",
+    date: "2025 – 2026",
+    categories: ["Hardware", "Research"],
+    subtitle: "Biomedical Engineering · Microfluidics",
+
+    images: [
+        "images/microfluidic-1.jpg",
+        "images/microfluidic-2.jpg",
+        "images/microfluidic-3.jpg"
+    ],
+
+    captions: [
+        "Microfluidic device",
+        "Channel design",
+        "Experimental setup"
+    ],
+
+    tools: [
+        "Microfluidics", "PDMS",
+        "Prototyping", "Fluid Systems"
+    ],
+
+    overview:
+        "I worked on a microfluidic bubble sorter project involving PDMS-based devices. The project explored how small-scale fluid channels can be used to control and separate bubbles within a fluid system.",
+
+    contributions: [
+        "Worked with a PDMS-based microfluidic device.",
+        "Explored the relationship between channel geometry and fluid behavior.",
+        "Developed experience with small-scale fluid systems and biomedical engineering design."
+    ],
+
+    results:
+        "This project provided hands-on experience with microfluidic devices and fluid system design.",
+
+    benefits: [
+        "Explores fluid control at small scales.",
+        "Provides experience with biomedical engineering applications.",
+        "Demonstrates the importance of device geometry in fluid behavior."
+    ],
+
+    limitations:
+        "Microfluidic performance can be sensitive to fabrication tolerances, flow conditions, and channel geometry. Further experimental testing would be needed to quantify sorting performance and repeatability."
+},
+
+// Project 11: RISC-V ALU
+
+{
+    id: "riscv",
+    title: "RISC-V ALU Logic Design",
+    date: "Digital Systems Project",
+    categories: ["Hardware"],
+    subtitle: "Computer Architecture · SystemVerilog",
+
+    images: [
+        "images/riscv-1.jpg",
+        "images/riscv-2.jpg",
+        "images/riscv-3.jpg"
+    ],
+
+    captions: [
+        "ALU design",
+        "Digital logic implementation",
+        "Simulation results"
+    ],
+
+    tools: [
+        "SystemVerilog", "RISC-V",
+        "Digital Logic", "Combinational Circuits"
+    ],
+
+    overview:
+        "I worked on implementing XOR logic for a RISC-V arithmetic logic unit using SystemVerilog. The project helped me understand how processor instructions are represented through hardware logic.",
+
+    contributions: [
+        "Implemented XOR functionality using SystemVerilog.",
+        "Worked with combinational logic used in arithmetic logic units.",
+        "Explored the relationship between processor instructions and digital hardware behavior."
+    ],
+
+    results:
+        "Implemented an XOR logic operation as part of an ALU design exercise.",
+
+    benefits: [
+        "Develops an understanding of processor architecture.",
+        "Provides experience with hardware description languages.",
+        "Connects software instructions to digital circuit behavior."
+    ],
+
+    limitations:
+        "This work focused on an individual ALU operation rather than a complete processor. Future improvements could include additional arithmetic and logical operations, more extensive verification, and integration with a processor datapath."
+},
+
+// Project 12: Special Olympics Web Application
+
+{
+    id: "change",
+    title: "Special Olympics Web Application",
+    date: "September 2026 – Present",
+    categories: ["Software"],
+    subtitle: "Change++ · Software Engineering",
+
+    images: [
+        "images/change-1.jpg",
+        "images/change-2.jpg",
+        "images/change-3.jpg"
+    ],
+
+    captions: [
+        "Web application interface",
+        "Resource portal",
+        "Application architecture"
+    ],
+
+    tools: [
+        "React", "TypeScript", "PostgreSQL",
+        "REST APIs", "Docker", "JWT", "Git"
+    ],
+
+    overview:
+        "Through Change++, I work on a web application for Special Olympics Tennessee, an organization serving more than 21,000 athletes and families. The project focuses on making organizational resources easier to find and access through a centralized web portal.",
+
+    contributions: [
+        "Develop resource cards and frontend components.",
+        "Connect frontend components to backend services.",
+        "Work with PostgreSQL to support application data.",
+        "Contribute to authentication and application functionality.",
+        "Use Docker for local development.",
+        "Collaborate with other developers to test and integrate features."
+    ],
+
+    results:
+        "Contributing to the ongoing development of a web platform for Special Olympics Tennessee.",
+
+    benefits: [
+        "Centralizes organizational resources.",
+        "Helps users find relevant information.",
+        "Provides a foundation for additional digital services.",
+        "Supports a more accessible user experience."
+    ],
+
+    limitations:
+        "The application is still under development. Continued testing, accessibility evaluations, and user feedback will be important before assessing its long-term effectiveness.",
+
+    confidential:
+        "The source code is maintained in a private repository. Only approved screenshots and non-confidential project information should be shared."
+}
+
+];
+
+// Image Placeholders
+
+function createPlaceholder(label) {
+    const placeholder = document.createElement("div");
+
+    placeholder.className = "placeholder";
+
+    placeholder.innerHTML = `
+        <svg viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="1.2"
+             aria-hidden="true">
+            <rect x="3" y="3" width="18"
+                  height="18" rx="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <path d="M21 15l-5-5L5 21"></path>
+        </svg>
+    `;
+
+    const text = document.createElement("span");
+    text.textContent = label;
+
+    placeholder.appendChild(text);
+
+    return placeholder;
+}
+
+// Check Available Images
+
+const imageCache = new Map();
+
+function checkImage(source) {
+
+    if (imageCache.has(source)) {
+        return imageCache.get(source);
+    }
+
+    const result = new Promise(resolve => {
+
+        const image = new Image();
+
+        image.onload = () => resolve(true);
+        image.onerror = () => resolve(false);
+
+        image.src = source;
+
+    });
+
+    imageCache.set(source, result);
+
+    return result;
+}
+
+async function getAvailableImages(project) {
+
+    const images = await Promise.all(
+        project.images.map(async (source, index) => {
+
+            const exists = await checkImage(source);
+
+            if (!exists) return null;
+
+            return {
+                source: source,
+                caption: project.captions[index] || project.title
+            };
+
+        })
+    );
+
+    return images.filter(image => image !== null);
+}
+
+// Display Cover Image
+
+async function displayCover(container, project) {
+
+    container.replaceChildren(
+        createPlaceholder(project.title)
+    );
+
+    for (let i = 0; i < project.images.length; i++) {
+
+        const source = project.images[i];
+
+        if (await checkImage(source)) {
+
+            const image = document.createElement("img");
+
+            image.src = source;
+            image.alt = project.captions[i] || project.title;
+
+            container.replaceChildren(image);
+
+            return;
+        }
+    }
+}
+
+// Project Gallery
+
+const projectGrid = document.getElementById("project-grid");
+const projectCount = document.getElementById("project-count");
+
+function renderProjects(filter = "All") {
+
+    projectGrid.innerHTML = "";
+
+    const filteredProjects = projects.filter(project =>
+        filter === "All" ||
+        project.categories.includes(filter)
+    );
+
+    projectCount.textContent =
+        filteredProjects.length +
+        (filteredProjects.length === 1
+            ? " project"
+            : " projects");
+
+    filteredProjects.forEach(project => {
+
+        const card = document.createElement("button");
+
+        card.className = "project-card";
+        card.type = "button";
+
+        card.setAttribute(
+            "aria-label",
+            "View project: " + project.title
+        );
+
+        card.innerHTML = `
+            <div class="project-image">
+
+                <div class="card-image"></div>
+
+                <div class="image-overlay">
+                    <span class="overlay-arrow">
+                        &nearr;
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="project-info">
+
+                <h3>${project.title}</h3>
+
+                <div class="project-category">
+                    ${project.subtitle}
+                </div>
+
+                <div class="project-date">
+                    ${project.date}
+                </div>
+
+            </div>
+        `;
+
+        displayCover(
+            card.querySelector(".card-image"),
+            project
+        );
+
+        card.addEventListener("click", function () {
+            openProject(project);
+        });
+
+        projectGrid.appendChild(card);
+
+    });
+}
+
+// Project Filters
+
+document.querySelectorAll(".filter-button")
+    .forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            document.querySelectorAll(".filter-button")
+                .forEach(item => {
+
+                    item.classList.remove("active");
+                    item.setAttribute("aria-pressed", "false");
+
+                });
+
+            button.classList.add("active");
+            button.setAttribute("aria-pressed", "true");
+
+            renderProjects(button.dataset.filter);
+
+        });
+
+    });
+
+// Adaptive Photo Gallery
+
+async function renderPhotoGallery(project, gallery) {
+
+    const images = await getAvailableImages(project);
+
+    if (images.length === 0) {
+        return;
+    }
+
+    if (images.length === 1) {
+        gallery.classList.add("single");
+    }
+
+    if (images.length >= 3) {
+        gallery.classList.add("multiple");
+    }
+
+    images.forEach(photo => {
+
+        const figure = document.createElement("figure");
+        figure.className = "detail-photo";
+
+        const image = document.createElement("img");
+
+        image.src = photo.source;
+        image.alt = photo.caption;
+
+        const caption = document.createElement("figcaption");
+        caption.textContent = photo.caption;
+
+        figure.appendChild(image);
+        figure.appendChild(caption);
+
+        gallery.appendChild(figure);
+
+    });
+}
+
+// Project Details
+
+const dialog = document.getElementById("project-dialog");
+const detailContent = document.getElementById("detail-content");
+
+let previousFocus = null;
+
+function openProject(project) {
+
+    previousFocus = document.activeElement;
+
+    const tags = project.tools.map(tool =>
+        `<span class="tag">${tool}</span>`
+    ).join("");
+
+    const contributions = project.contributions.map(item =>
+        `<li>${item}</li>`
+    ).join("");
+
+    const benefits = project.benefits.map(item =>
+        `<li>${item}</li>`
+    ).join("");
+
+    detailContent.innerHTML = `
+
+        <div class="eyebrow">
+            ${project.subtitle}
+        </div>
+
+        <h1 id="detail-title">
+            ${project.title}
+        </h1>
+
+        <div class="detail-date">
+            ${project.date}
+        </div>
+
+        <div class="tags">
+            ${tags}
+        </div>
+
+        <div class="detail-gallery"></div>
+
+        <div class="detail-section">
+            <h2>Project Overview</h2>
+            <p>${project.overview}</p>
+        </div>
+
+        <div class="detail-section">
+            <h2>My Contributions</h2>
+            <ul>${contributions}</ul>
+        </div>
+
+        <div class="results-box">
+            <h2>Results</h2>
+            <p>${project.results}</p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Design Benefits</h2>
+            <ul>${benefits}</ul>
+        </div>
+
+        <div class="detail-section">
+            <h2>Limitations &amp; Future Improvements</h2>
+            <p>${project.limitations}</p>
+        </div>
+
+        ${project.confidential ? `
+            <p class="confidentiality">
+                ${project.confidential}
+            </p>
+        ` : ""}
+
+    `;
+
+    const gallery = detailContent.querySelector(".detail-gallery");
+
+    renderPhotoGallery(project, gallery);
+
+    dialog.showModal();
+    dialog.scrollTop = 0;
+
+    document.body.style.overflow = "hidden";
+
+    document.getElementById("back-button").focus();
+
+}
+
+// Close Project
+
+document.getElementById("back-button")
+    .addEventListener("click", () => dialog.close());
+
+document.getElementById("close-button")
+    .addEventListener("click", () => dialog.close());
+
+dialog.addEventListener("close", function () {
+
+    document.body.style.overflow = "";
+
+    if (previousFocus) {
+        previousFocus.focus();
+    }
+
+});
+
+dialog.addEventListener("click", function (event) {
+
+    if (event.target !== dialog) return;
+
+    const rect = dialog.getBoundingClientRect();
+
+    if (
+        event.clientX < rect.left ||
+        event.clientX > rect.right ||
+        event.clientY < rect.top ||
+        event.clientY > rect.bottom
+    ) {
+        dialog.close();
+    }
+
+});
+
+// Profile Photo
+
+async function loadProfilePhoto() {
+
+    const source = "images/profile.jpg";
+
+    const profile = document.getElementById("profile-image");
+    const layout = document.getElementById("about-layout");
+
+    if (await checkImage(source)) {
+
+        const image = document.createElement("img");
+
+        image.src = source;
+        image.alt = "Ashley Tran";
+
+        profile.appendChild(image);
+
+        profile.hidden = false;
+
+        layout.classList.remove("no-photo");
+
+    }
+
+}
+
+// Resume Button
+
+document.getElementById("resume-button")
+    .addEventListener("click", async function () {
+
+        const tab = window.open("about:blank", "_blank");
+
+        if (tab) tab.opener = null;
+
+        try {
+
+            const response = await fetch(
+                "resume.pdf",
+                { method: "HEAD" }
+            );
+
+            if (!response.ok) {
+                throw new Error("Resume unavailable");
+            }
+
+            if (tab) {
+                tab.location.href = "resume.pdf";
+            } else {
+                window.location.href = "resume.pdf";
+            }
+
+        } catch (error) {
+
+            if (tab) tab.close();
+
+            alert(
+                "My resume is currently available upon request. " +
+                "Please contact ashley.b.tran@vanderbilt.edu."
+            );
+
+        }
+
+    });
+
+// Initialize Portfolio
+
+renderProjects();
+loadProfilePhoto();
+
+</script>
+
+</body>
+</html>
