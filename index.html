@@ -1931,7 +1931,29 @@ ${project.id === "career-agent" ? `
         </p>
     </div>
 `: ""}
+${project.id === "pinny" ? `
+    <div class="detail-section">
+        <h2>Interactive Live Demo</h2>
 
+        <p>
+            Explore my full-stack image discovery
+            and organization application in real time.
+        </p>
+
+        <a href="https://pinny.onrender.com/"
+           class="primary-button"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="margin-top: 15px;">
+            Launch Pinny &nearr;
+        </a>
+
+        <p style="font-size: 12px; margin-top: 10px;">
+            The initial response may take longer while
+            the free cloud server starts up.
+        </p>
+    </div>
+` : ""}
 <div class="detail-section">
     <h2>My Contributions</h2>
     <ul>${contributions}</ul>
