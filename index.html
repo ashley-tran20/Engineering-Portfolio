@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -597,24 +596,6 @@ nav {
     line-height: 1.8;
 }
 
-/* Resume Section */
-
-.resume-section {
-    padding: 50px 0;
-    border-top: 1px solid var(--border);
-}
-
-.resume-section h2 {
-    font-size: 28px;
-    font-weight: 550;
-    margin-bottom: 12px;
-}
-
-.resume-section p {
-    color: var(--muted);
-    margin-bottom: 22px;
-}
-
 .primary-button {
     display: inline-block;
     background: var(--surface-light);
@@ -769,6 +750,59 @@ footer {
     }
 }
 
+
+/* Image-first portfolio theme */
+header { background: #fff; color: #101e33; backdrop-filter: none; border-bottom: 1px solid #d7dde1; }
+header .nav-links a { color: #334155; }
+header .nav-links a:hover { color: #101e33; }
+nav { min-height: 66px; }
+.contact-links a:hover { color: var(--white); }
+.hero { padding: 34px 0 18px; }
+.hero h1 { font-size: clamp(26px, 3.5vw, 40px); letter-spacing: -1.2px; margin-bottom: 8px; }
+.hero .university { font-size: 16px; margin-bottom: 4px; }
+.hero p { font-size: 14px; }
+.projects-section { padding-top: 18px; }
+.section-heading { margin-bottom: 12px; }
+.section-heading h2 { font-size: 21px; }
+.filters { margin-bottom: 22px; }
+.filter-button { border-radius: 4px; padding: 6px 14px; }
+.project-grid { column-gap: 18px; row-gap: 26px; }
+.project-image { border-radius: 5px; background: var(--surface-light); }
+.project-info { padding-top: 9px; }
+.project-info h3 { font-size: 16px; font-weight: 600; }
+.image-overlay { background: none; }
+.overlay-arrow { background: #fff; color: #172033; border-color: #d7dde1; }
+.project-card:hover img { transform: scale(1.025); }
+.primary-button { background: #233750; border-color: #527493; color: #fff; }
+.contact-section, footer { background: #0c1728; }
+.project-dialog::backdrop { background: rgba(23,32,51,.65); backdrop-filter: none; }
+.agent-gallery .detail-photo img, .detail-photo img[src*="omsi-"] { background: transparent; border: none; width: auto; max-width: 100%; height: auto; margin: 0 auto; }
+@media (max-width: 560px) {
+    .hero { padding: 25px 0 12px; }
+    .hero h1 { font-size: 27px; }
+    .project-grid { gap: 20px 12px; }
+    .project-info h3 { font-size: 14px; }
+}
+
+
+/* Alternating project rows */
+.project-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+.project-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; padding: 36px 0; border-bottom: 1px solid var(--border); }
+.project-card:nth-child(even) .project-image { order: 2; }
+.project-image { aspect-ratio: 4 / 3; }
+.project-image img { object-fit: contain; }
+.project-info { padding: 0; }
+.project-info h3 { font-size: clamp(21px, 2.5vw, 30px); margin: 8px 0 12px; }
+.project-info p { color: var(--muted); font-size: 15px; line-height: 1.7; margin-bottom: 14px; }
+.project-info .tags { margin-bottom: 18px; }
+.project-info .project-category { font-size: 12px; }
+.project-info .primary-button { margin-top: 4px; }
+.project-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+@media (max-width: 700px) {
+  .project-card { grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 26px 0; }
+  .project-card:nth-child(even) .project-image { order: 0; }
+}
+
 </style>
 </head>
 
@@ -780,13 +814,12 @@ footer {
     <nav class="container">
 
         <a class="logo" href="#">
-            Ashley Tran<span>.</span>
+            Ashley Tran
         </a>
 
         <div class="nav-links">
             <a href="#projects">Projects</a>
             <a href="#about">About</a>
-            <a href="#resume">Resume</a>
             <a href="#contact">Contact</a>
         </div>
 
@@ -798,29 +831,9 @@ footer {
 <!-- Introduction -->
 
 <section class="hero container">
-
-    <div class="eyebrow">
-        Engineering Portfolio / 2026
-    </div>
-
-    <h1>Design. Build. Innovate.</h1>
-
-    <p class="university">
-        Electrical &amp; Computer Engineering at Vanderbilt University
-    </p>
-
-    <p>
-        I'm interested in building systems that bring hardware
-        and software together, with a particular interest in
-        robotics, embedded systems, artificial intelligence,
-        and assistive technology.
-    </p>
-
-    <div class="availability">
-        <span class="status-dot"></span>
-        Seeking Summer 2027 engineering internships
-    </div>
-
+    <h1>Electrical &amp; Computer Engineering</h1>
+    <p class="university">Vanderbilt University · Class of 2028</p>
+    <p>Hardware, embedded systems, robotics, and assistive technology.</p>
 </section>
 
 <!-- Portfolio Section -->
@@ -830,7 +843,7 @@ footer {
     <div class="section-heading">
         <h2>Selected Projects</h2>
         <span id="project-count" class="project-count">
-            12 projects
+            11 projects
         </span>
     </div>
 
@@ -968,29 +981,6 @@ footer {
 
 </section>
 
-<!-- Resume Section -->
-
-<section id="resume" class="resume-section">
-
-    <div class="container">
-
-        <div class="eyebrow">Experience &amp; Education</div>
-
-        <h2>Resume</h2>
-
-        <p>
-            A summary of my education, technical experience,
-            engineering projects, and leadership activities.
-        </p>
-
-        <button class="primary-button" id="resume-button">
-            View Resume &nearr;
-        </button>
-
-    </div>
-
-</section>
-
 <!-- Contact Section -->
 
 <section id="contact" class="contact-section">
@@ -1002,9 +992,7 @@ footer {
         <h2>Let's connect.</h2>
 
         <p>
-            I'm currently looking for Summer 2027 engineering
-            internships and am open to relocation. I'm always
-            interested in connecting with people working on
+            I'm interested in connecting with people working on
             robotics, hardware, software, and technologies
             that improve accessibility.
         </p>
@@ -1634,6 +1622,9 @@ const projects = [
 
 ];
 
+const projectOrder = ["syringe-pump", "adaptive-vehicle", "microfluidics", "fpga", "embedded-systems", "robotics-research", "riscv", "omsi", "change", "pinny", "career-agent"];
+projects.sort((a, b) => projectOrder.indexOf(a.id) - projectOrder.indexOf(b.id));
+
 // Image Placeholders
 
 function createPlaceholder(label) {
@@ -1756,39 +1747,32 @@ function renderProjects(filter = "All") {
 
     filteredProjects.forEach(project => {
 
-        const card = document.createElement("button");
+        const card = document.createElement("article");
 
         card.className = "project-card";
-        card.type = "button";
 
-        card.setAttribute(
-            "aria-label",
-            "View project: " + project.title
-        );
+
 
         card.innerHTML = `
             <div class="project-image">
 
                 <div class="card-image"></div>
 
-                <div class="image-overlay">
-                    <span class="overlay-arrow">
-                        &nearr;
-                    </span>
-                </div>
+
 
             </div>
 
             <div class="project-info">
 
+                <div class="project-category">${project.subtitle}</div>
                 <h3>${project.title}</h3>
-
-                <div class="project-category">
-                    ${project.subtitle}
-                </div>
-
-                <div class="project-date">
-                    ${project.date}
+                <p>${project.overview}</p>
+                <p>${project.results}</p>
+                <div class="tags">${project.tools.map(tool => `<span class="tag">${tool}</span>`).join("")}</div>
+                <div class="project-actions">
+                    <button type="button" class="primary-button view-project">View project &nearr;</button>
+                    ${project.id === "pinny" ? '<a class="primary-button" href="https://pinny.onrender.com/" target="_blank" rel="noopener noreferrer">Launch Pinny &nearr;</a>' : ""}
+                    ${project.id === "career-agent" ? '<a class="primary-button" href="career-agent/" target="_blank" rel="noopener noreferrer">Launch AI Agent &nearr;</a>' : ""}
                 </div>
 
             </div>
@@ -1799,7 +1783,7 @@ function renderProjects(filter = "All") {
             project
         );
 
-        card.addEventListener("click", function () {
+        card.querySelector(".view-project").addEventListener("click", function () {
             openProject(project);
         });
 
@@ -1970,6 +1954,10 @@ ${project.id === "pinny" ? `
     <ul>${contributions}</ul>
 </div>
 
+        <div class="results-box">
+            <h2>Results</h2>
+            <p>${project.results}</p>
+        </div>
         <div class="detail-section">
             <h2>Design Benefits</h2>
             <ul>${benefits}</ul>
@@ -2061,45 +2049,6 @@ async function loadProfilePhoto() {
     }
 
 }
-
-// Resume Button
-
-document.getElementById("resume-button")
-    .addEventListener("click", async function () {
-
-        const tab = window.open("about:blank", "_blank");
-
-        if (tab) tab.opener = null;
-
-        try {
-
-            const response = await fetch(
-                "resume.pdf",
-                { method: "HEAD" }
-            );
-
-            if (!response.ok) {
-                throw new Error("Resume unavailable");
-            }
-
-            if (tab) {
-                tab.location.href = "resume.pdf";
-            } else {
-                window.location.href = "resume.pdf";
-            }
-
-        } catch (error) {
-
-            if (tab) tab.close();
-
-            alert(
-                "My resume is currently available upon request. " +
-                "Please contact ashley.b.tran@vanderbilt.edu."
-            );
-
-        }
-
-    });
 
 // Initialize Portfolio
 
