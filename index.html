@@ -1906,19 +1906,38 @@ function openProject(project) {
         <div class="detail-gallery"></div>
 
         <div class="detail-section">
-            <h2>Project Overview</h2>
-            <p>${project.overview}</p>
-        </div>
+    <h2>Project Overview</h2>
+    <p>${project.overview}</p>
+</div>
 
-        <div class="detail-section">
-            <h2>My Contributions</h2>
-            <ul>${contributions}</ul>
-        </div>
+${project.id === "career-agent" ? `
+    <div class="detail-section">
+        <h2>Interactive Live Demo</h2>
 
-        <div class="results-box">
-            <h2>Results</h2>
-            <p>${project.results}</p>
-        </div>
+        <p>
+            Explore my AI-powered career and interview
+            preparation assistant in real time.
+        </p>
+
+        <a href="career-agent/"
+           class="primary-button"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="margin-top: 15px;">
+            Launch AI Agent &nearr;
+        </a>
+
+        <p style="font-size: 12px; margin-top: 10px;">
+            The initial response may take longer while
+            the free cloud server starts up.
+        </p>
+    </div>
+`: ""}
+
+<div class="detail-section">
+    <h2>My Contributions</h2>
+    <ul>${contributions}</ul>
+</div>
 
         <div class="detail-section">
             <h2>Design Benefits</h2>
