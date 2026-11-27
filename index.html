@@ -234,24 +234,21 @@ nav {
 
 .project-image {
     position: relative;
-    aspect-ratio: 1 / 1;
+    background: transparent;
+    border: none;
     overflow: hidden;
-    background: var(--surface-light);
-    border: 1px solid var(--border);
-    border-radius: 9px;
 }
 
 .card-image {
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .project-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     display: block;
-    transition: transform 0.4s ease;
 }
 
 .project-card:hover img {
@@ -767,7 +764,6 @@ nav { min-height: 66px; }
 .filters { margin-bottom: 22px; }
 .filter-button { border-radius: 4px; padding: 6px 14px; }
 .project-grid { column-gap: 18px; row-gap: 26px; }
-.project-image { border-radius: 5px; background: var(--surface-light); }
 .project-info { padding-top: 9px; }
 .project-info h3 { font-size: 16px; font-weight: 600; }
 .image-overlay { background: none; }
@@ -789,7 +785,6 @@ nav { min-height: 66px; }
 .project-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
 .project-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; padding: 36px 0; border-bottom: 1px solid var(--border); }
 .project-card:nth-child(even) .project-image { order: 2; }
-.project-image { aspect-ratio: 4 / 3; }
 .project-image img { object-fit: contain; }
 .project-info { padding: 0; }
 .project-info h3 { font-size: clamp(21px, 2.5vw, 30px); margin: 8px 0 12px; }
