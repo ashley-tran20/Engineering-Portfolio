@@ -803,20 +803,34 @@ nav { min-height: 66px; }
   .project-card:nth-child(even) .project-image { order: 0; }
 }
 /* Remove blue boxes around project images */
+
 .project-image {
-    background: transparent;
-    border: none;
-    border-radius: 0;
+    aspect-ratio: auto !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: visible;
+}
+
+.card-image {
+    width: 100%;
+    height: auto !important;
+    background: transparent !important;
 }
 
 .project-image img {
+    width: 100%;
+    height: auto !important;
     object-fit: contain;
-    background: transparent;
+    display: block;
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0;
 }
 
 .detail-photo img {
-    background: transparent;
-    border: none;
+    background: transparent !important;
+    border: none !important;
     box-shadow: none;
 }
 
