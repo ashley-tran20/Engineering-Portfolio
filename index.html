@@ -802,7 +802,27 @@ nav { min-height: 66px; }
   .project-card { grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 26px 0; }
   .project-card:nth-child(even) .project-image { order: 0; }
 }
+/* Remove blue boxes around project images */
+.project-image {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
 
+.project-image img {
+    object-fit: contain;
+    background: transparent;
+}
+
+.detail-photo img {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.placeholder {
+    background: transparent;
+}
 </style>
 </head>
 
