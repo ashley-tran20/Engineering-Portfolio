@@ -832,6 +832,25 @@ nav { min-height: 66px; }
 .placeholder {
     background: transparent;
 }
+/* Text-only project layout */
+.project-card.text-only {
+    grid-template-columns: 1fr;
+}
+
+.project-card.text-only .project-image {
+    display: none;
+}
+
+.project-card.text-only .project-info {
+    max-width: 900px;
+}
+
+.project-status {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
 </style>
 </head>
 
@@ -872,7 +891,7 @@ nav { min-height: 66px; }
     <div class="section-heading">
         <h2>Selected Projects</h2>
         <span id="project-count" class="project-count">
-            11 projects
+            10 projects
         </span>
     </div>
 
@@ -1460,13 +1479,15 @@ const projects = [
     subtitle: "Digital Systems · FPGA Development",
 
     images: [
-    "images/fpga-1.jpg?v=3",
-    "images/fpga-2.jpg?v=3",
-    "images/fpga-3.jpg?v=3"
+    "images/fpga-1.jpg?v=4",
+    "images/fpga-2.jpg?v=4",
+    "images/fpga-3.jpg?v=4"
 ],
 
     captions: [
-        "Hardware Design, Register/counter logic and Simulations/testbenches"
+        "Hardware design",
+        "Register and counter logic",
+        "Simulations and testbenches"
     ],
 
     tools: [
@@ -1555,17 +1576,8 @@ const projects = [
     categories: ["Software"],
     subtitle: "Change++ · Software Engineering",
 
-    images: [
-        "images/change-1.jpg",
-        "images/change-2.jpg",
-        "images/change-3.jpg"
-    ],
-
-    captions: [
-        "Web application interface",
-        "Resource portal",
-        "Application architecture"
-    ],
+    images: [],
+    captions: [],
 
     tools: [
         "React", "TypeScript", "PostgreSQL",
@@ -1603,7 +1615,7 @@ const projects = [
 
 ];
 
-const projectOrder = ["syringe-pump", "adaptive-vehicle", "microfluidics", "fpga", "embedded-systems", "robotics-research", "riscv", "omsi", "change", "pinny", "career-agent"];
+const projectOrder = ["syringe-pump", "adaptive-vehicle", "microfluidics", "fpga", "embedded-systems", "robotics-research", "omsi", "change", "pinny", "career-agent"];
 projects.sort((a, b) => projectOrder.indexOf(a.id) - projectOrder.indexOf(b.id));
 
 // Image Placeholders
@@ -1730,7 +1742,9 @@ function renderProjects(filter = "All") {
 
         const card = document.createElement("article");
 
-        card.className = "project-card";
+        card.className = project.id === "change"
+    ? "project-card text-only"
+    : "project-card";
 
 
 
@@ -1747,6 +1761,16 @@ function renderProjects(filter = "All") {
 
                 <div class="project-category">${project.subtitle}</div>
                 <h3>${project.title}</h3>
+
+${project.id === "change" ? `
+    <div class="project-status">
+        Currently in Development
+    </div>
+    <p>
+        Application screenshots are not publicly
+        available while development is ongoing.
+    </p>
+` : ""}
                 <p>${project.overview}</p>
                 <p>${project.results}</p>
                 <div class="tags">${project.tools.map(tool => `<span class="tag">${tool}</span>`).join("")}</div>
@@ -1759,10 +1783,9 @@ function renderProjects(filter = "All") {
             </div>
         `;
 
-        displayCover(
-            card.querySelector(".card-image"),
-            project
-        );
+        if (project.id !== "change") {
+            displayCover(card.querySelector(".card-image"), project);
+        }
 
         card.querySelector(".view-project").addEventListener("click", function () {
             openProject(project);
