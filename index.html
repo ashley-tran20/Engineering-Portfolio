@@ -452,15 +452,17 @@ nav {
     border: 1px solid var(--border);
     border-radius: 9px;
 }
-/*For AI-Agent Image 1 */
-.detail-photo img[src^="images/agent-"] {
-    width: auto;
+/* For AI Agent Images Only */
+.detail-photo img[src*="agent-"] {
+    width: auto !important;
+    height: auto !important;
     max-width: 100%;
     max-height: 520px;
-    object-fit: contain;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
     margin: 0 auto;
-    background: transparent;
-    border: none;
+    display: block;
 }
 
 .detail-photo figcaption {
