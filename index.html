@@ -452,17 +452,16 @@ nav {
     border: 1px solid var(--border);
     border-radius: 9px;
 }
-/* For AI Agent Images Only */
-.detail-photo img[src*="agent-"] {
-    width: auto !important;
-    height: auto !important;
+/* AI Agent Gallery Styling */
+.agent-gallery .detail-photo img {
+    width: auto;
+    height: auto;
     max-width: 100%;
     max-height: 520px;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
     margin: 0 auto;
-    display: block;
+    background: none;
+    border: none;
+    box-shadow: none;
 }
 
 .detail-photo figcaption {
@@ -1913,7 +1912,7 @@ function openProject(project) {
             ${tags}
         </div>
 
-        <div class="detail-gallery"></div>
+       <div class="detail-gallery ${project.id === 'career-agent' ? 'agent-gallery' : ''}"></div>
 
         <div class="detail-section">
     <h2>Project Overview</h2>
